@@ -2,7 +2,6 @@ import requests
 requests.packages.urllib3.disable_warnings()
 import json
 import os
-from timestamp.timestamp import timestamp
 import xml.etree.ElementTree as x
 
 '''
@@ -59,7 +58,6 @@ class NetMRI(object):
 			#self.authenticate(connection_info)
 		return output
 	
-	@timestamp
 	def authenticate(self):
 		creds = self.load_configuration(self.config)
 		self.session = requests.Session()
@@ -172,7 +170,6 @@ class NetMRI(object):
 		output = self.get(path, params=params)
 		return output
 	
-	@timestamp
 	def query_all(self, section, params={}):
 		if not params:
 			params = {
